@@ -23,7 +23,9 @@ export default function Home() {
       // once deployed, prefix this with your cloudflare worker url
       // i.e.: https://<name>.<account-name>.workers.dev/api/search?q=${input}
 
-      const res = await fetch(`/api/search?q=${input}`)
+      const res = await fetch(
+        `https://fastapi.faastapi.workers.dev/api/search?q=${input}`
+      );
       const data = (await res.json()) as { results: string[]; duration: number }
       setSearchResults(data)
     }
